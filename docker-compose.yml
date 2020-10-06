@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  transactioneventapi:
+    image: ${DOCKER_REGISTRY-}transactioneventapi
+    build:
+      context: .
+      dockerfile: TransactionEventApi/Dockerfile
