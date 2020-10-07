@@ -3,6 +3,7 @@ using Glasswall.Administration.K8.TransactionEventApi.Business.Services;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +24,18 @@ namespace Glasswall.Administration.K8.TransactionEventApi
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("*",
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowAnyOrigin();
+                    });
+            });
+
             services.AddTransient<ITransactionService, TransactionService>();
         }
 
@@ -32,13 +45,28 @@ namespace Glasswall.Administration.K8.TransactionEventApi
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            app.UseHttpsRedirection();
             app.UseRouting();
+
             app.UseAuthorization();
+
+            app.Use((context, next) =>
+            {
+                context.Response.Headers["Access-Control-Expose-Headers"] = "*";
+                context.Response.Headers["Access-Control-Allow-Headers"] = "*";
+                context.Response.Headers["Access-Control-Allow-Origin"] = "*";
+
+                if (context.Request.Method != "OPTIONS") return next.Invoke();
+                
+                context.Response.StatusCode = 200;
+                return context.Response.WriteAsync("OK");
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors("*");
         }
     }
 }

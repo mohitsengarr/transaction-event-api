@@ -19,7 +19,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Services
 
         private static async Task<IEnumerable<GetTransactionsResponseV1>> InternalGetTransactionsAsync(GetTransactionsRequestV1 requestV1)
         {
-            return await Task.FromResult(Enumerable.Range(0, new Random().Next(0, 1000000)).Select(s =>
+            return await Task.FromResult(Enumerable.Range(0, 100).Select(s =>
                 new GetTransactionsResponseV1
                 {
                     ActivePolicy = Guid.NewGuid(),
@@ -27,7 +27,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Services
                     DetectionFileType = GetRandomEnum<FileType>(),
                     Risk = GetRandomEnum<Risk>(),
                     FileId = Guid.NewGuid(),
-                    Timestamp = requestV1.FilterV1.TimestampRangeStart.GetValueOrDefault()
+                    Timestamp = requestV1.Filter.TimestampRangeStart.GetValueOrDefault()
                 }));
         }
         
