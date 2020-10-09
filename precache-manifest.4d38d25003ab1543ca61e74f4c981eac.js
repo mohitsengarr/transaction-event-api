@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16c06b559822fff63c4bcb8f28c6f932",
+    "revision": "d6d81025ac9c1af9d6519fb8d946ac55",
     "url": "/transaction-event-api/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/transaction-event-api/static/css/2.ecb7c289.chunk.css"
   },
   {
-    "revision": "19856e3c50d36764a813",
+    "revision": "19b1939bb93ba80b0f65",
     "url": "/transaction-event-api/static/css/main.d2866852.chunk.css"
   },
   {
@@ -20,16 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/transaction-event-api/static/js/2.da773f90.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "19856e3c50d36764a813",
-    "url": "/transaction-event-api/static/js/main.30aca523.chunk.js"
+    "revision": "19b1939bb93ba80b0f65",
+    "url": "/transaction-event-api/static/js/main.33346f1a.chunk.js"
   },
   {
     "revision": "a19debf19a47611f273e",
     "url": "/transaction-event-api/static/js/runtime-main.3003cedc.js"
   },
   {
-    "revision": "37025c479538428cb667cc91b341e375",
-    "url": "/transaction-event-api/static/media/api.37025c47.yaml"
+    "revision": "a09ad197242243bba68b3b0c6b1c2d36",
+    "url": "/transaction-event-api/static/media/api.a09ad197.yaml"
   },
   {
     "revision": "8503c64fa486375dc20b3c00aa2e250a",
