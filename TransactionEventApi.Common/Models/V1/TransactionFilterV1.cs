@@ -13,12 +13,12 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1
         [Required]
         public DateTimeOffset? TimestampRangeEnd { get; set; }
         
-        public IEnumerable<Guid> FileId { get; set; }
+        //public IEnumerable<Guid> FileId { get; set; }
 
-        public IEnumerable<FileType> DetectionFileType { get; set; }
+        //public IEnumerable<FileType> DetectionFileType { get; set; }
 
-        public IEnumerable<Risk> Risk { get; set; }
+        //public IEnumerable<Risk> Risk { get; set; }
 
-        public IEnumerable<Guid> ActivePolicy { get; set; }
+        //public IEnumerable<Guid> ActivePolicy { get; set; }
     }
 }

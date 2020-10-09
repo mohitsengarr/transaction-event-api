@@ -1,10 +1,9 @@
 ﻿namespace Glasswall.Administration.K8.TransactionEventApi.Common.Enums
 {
-    public enum Risk
+    public enum GwOutcome
     {
-        Unknown,
-        Safe,
-        Blocked,
-        Allowed
+        Replace,
+        Unmodified,
+        Failed
     }
 }

@@ -5,6 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - TransactionStoreConnectionStringCsv=
     ports:
       - "32769:80"
       - "32768:443"

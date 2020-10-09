@@ -1,10 +1,9 @@
 ﻿namespace Glasswall.Administration.K8.TransactionEventApi.Common.Enums
 {
-    public enum Risk
+    public enum NCFSOutcome
     {
-        Unknown,
-        Safe,
-        Blocked,
-        Allowed
+        Relayed,
+        Replaced,
+        Blocked
     }
 }

@@ -24,7 +24,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public async Task<IEnumerable<GetTransactionsResponseV1>> Get([Required][FromBody]GetTransactionsRequestV1 requestV1)
+        public async Task<IActionResult> Get([Required][FromBody]GetTransactionsRequestV1 requestV1)
         {
             if (requestV1 == null) throw new ArgumentNullException(nameof(requestV1));
 
@@ -34,7 +34,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Controllers
 
             _logger.LogInformation("Finished get transactions requestV1");
 
-            return transactions;
+            return Ok(transactions);
         }
     }
 }

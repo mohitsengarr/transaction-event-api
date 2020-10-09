@@ -1,10 +1,8 @@
 ﻿namespace Glasswall.Administration.K8.TransactionEventApi.Common.Enums
 {
-    public enum Risk
+    public enum RequestMode
     {
-        Unknown,
-        Safe,
-        Blocked,
-        Allowed
+        Request,
+        Response
     }
 }
