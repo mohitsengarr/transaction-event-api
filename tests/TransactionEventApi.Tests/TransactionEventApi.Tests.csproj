@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TestCommon\TestCommon.csproj" />
+    <ProjectReference Include="..\TestCommon\TestCommon.csproj" />
     <ProjectReference Include="..\..\TransactionEventApi.Business\TransactionEventApi.Business.csproj" />
     <ProjectReference Include="..\..\TransactionEventApi.Common\TransactionEventApi.Common.csproj" />
     <ProjectReference Include="..\..\TransactionEventApi\TransactionEventApi.csproj" />
