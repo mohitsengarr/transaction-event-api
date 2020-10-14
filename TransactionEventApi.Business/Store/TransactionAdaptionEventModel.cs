@@ -84,8 +84,8 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
                 Properties = new Dictionary<string, string>
                 {
                     ["FileId"] = fileId?.ToString() ?? Guid.NewGuid().ToString(),
-                    ["EventId"] = eventId.ToString(),
-                    ["Timestamp"] = timestamp.GetValueOrDefault(DateTimeOffset.UtcNow).ToString("O"),
+                    ["EventId"] = ((int)eventId).ToString(),
+                    ["Timestamp"] = timestamp.GetValueOrDefault(DateTimeOffset.UtcNow).ToString("O")
                 }
             };
         }

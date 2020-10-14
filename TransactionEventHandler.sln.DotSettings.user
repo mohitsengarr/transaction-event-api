@@ -1,0 +1,38 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e875ebb6_002Def21_002D4f12_002Da046_002D3e42ea979e52/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TryAdds_Are_Correct" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.Controllers.TransactionControllerTests.ConstructorTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.Controllers.TransactionControllerTests.GetTransactionsMethod.WhenRequestIsValid&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.Controllers.TransactionControllerTests.GetDetailMethod.WhenRequestIsValid&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.StartupTests.WhenUsingStartup.Can_Resolve_Transaction_Service&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.StartupTests.WhenUsingStartup.Configuration_Can_Be_Parsed&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.StartupTests.WhenUsingStartup.Can_Get_Client&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.StartupTests.WhenUsingStartup&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.ValidateModelTests.WhenModelIsValid&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.ValidateModelTests.ValidateModelTests.BadRequest_Set_When_Model_Errors_Occur&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.ValidateModelTests.ValidateModelTests.BadRequest_Not_Set_When_Model_Errors_Do_Not_Occur&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.ValidateModelTests.ValidateModelTests.Exception_Thrown_With_Null_Context&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::C20F2BF1-7859-479A-8ED0-607C9E541308::.NETCoreApp,Version=v3.1::TransactionEventApi.Tests.ValidateModelTests.ValidateModelTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetDetailMethod.WhenInputIsNotValid.Throws_With_Invalid_Path&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetDetailMethod.WhenFileDoesNotExist&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetDetailMethod.WhenAnalysisReportFileDoesNotExist&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetDetailMethod.WhenAnalysisReportFileIsFound&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenInputIsNotValid.Throws_With_Invalid_Path&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenAllStoresReturnData.Correct_Response_Is_Returned&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenAllStoresReturnData&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenNoStoresReturnData&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenEventIsNotYetComplete&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Services.TransactionServiceTests.GetTransactionsMethod.WhenEventIsMalformed&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenListingAndItemIsDirectory.Directory_Is_Entered&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenListingAndItemIsDirectory&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenPathActionIsToRecurse.Directory_Is_Recursed&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenPathActionIsToRecurse.Correct_Item_Is_Returned&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenPathActionIsToRecurse.Each_Directory_Is_Listed&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenPathActionIsToRecurse.Each_Directory_Action_Is_Decided&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenPathActionIsToRecurse&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7::.NETCoreApp,Version=v3.1::TransactionEventApi.Business.Tests.Store.AzureFileShareTests.WhenRecursingDirectory&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFolder&gt;E9CCCC60-6E62-4A02-9D73-4D2B8C72D5F7/d:Store/d:AzureFileShareTests/d:ListAsync&lt;/ProjectFolder&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
