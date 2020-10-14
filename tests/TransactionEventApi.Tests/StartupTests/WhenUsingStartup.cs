@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Azure.Storage.Files.Shares;
 using Glasswall.Administration.K8.TransactionEventApi;
+using Glasswall.Administration.K8.TransactionEventApi.Business.Configuration;
 using Glasswall.Administration.K8.TransactionEventApi.Business.Store;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Configuration;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Services;
@@ -57,6 +58,21 @@ namespace TransactionEventApi.Tests.StartupTests
 
             Assert.That(config.ShareName, Is.EqualTo("transactions"));
             Assert.That(config.TransactionStoreConnectionStringCsv, Is.EqualTo("string1,string2"));
+        }
+        
+        [Test]
+        public void When_ConfigValue_Is_Missing()
+        {
+            var services = new ServiceCollection();
+
+            Environment.SetEnvironmentVariable(nameof(ITransactionEventApiConfiguration.TransactionStoreConnectionStringCsv), "");
+            Environment.SetEnvironmentVariable(nameof(ITransactionEventApiConfiguration.ShareName), "");
+
+            ClassInTest.ConfigureServices(services);
+
+            Assert.That(() => services.BuildServiceProvider().GetRequiredService<ITransactionEventApiConfiguration>(),
+                Throws.Exception.InstanceOf<ConfigurationBindException>().With.Message.EqualTo(
+                    "Error binding configuration: TransactionStoreConnectionStringCsv - Value must be at least 1 characters. Got " + Environment.NewLine + "ShareName - Value must be at least 1 characters. Got "));
         }
 
         [Test]

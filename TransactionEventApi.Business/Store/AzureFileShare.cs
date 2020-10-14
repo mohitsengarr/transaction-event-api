@@ -23,15 +23,15 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             return RecurseDirectory(_shareClient.GetRootDirectoryClient(), pathFilter);
         }
 
-        public Task<bool> ExistsAsync(string fileDirectory)
+        public Task<bool> ExistsAsync(string path)
         {
-            if (string.IsNullOrWhiteSpace(fileDirectory)) throw new ArgumentException("Value must not be null or whitespace", nameof(fileDirectory));
-            return InternalExistsAsync(fileDirectory);
+            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException("Value must not be null or whitespace", nameof(path));
+            return InternalExistsAsync(GetFileClient(path));
         }
 
         public Task<MemoryStream> DownloadAsync(string path)
         {
-            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException("Value cannot be null or whitespace", nameof(path));
+            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException("Value must not be null or whitespace", nameof(path));
             return InternalDownloadAsync(path);
         }
 
@@ -39,7 +39,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
         {
             var fileClient = GetFileClient(path);
 
-            if (await fileClient.ExistsAsync())
+            if (!await InternalExistsAsync(fileClient))
                 return null;
 
             var ms = new MemoryStream();
@@ -48,9 +48,9 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             return ms;
         }
 
-        private async Task<bool> InternalExistsAsync(string path)
+        private static async Task<bool> InternalExistsAsync(ShareFileClient client)
         {
-            return await GetFileClient(path).ExistsAsync();
+            return await client.ExistsAsync();
         }
 
         private ShareFileClient GetFileClient(string path)

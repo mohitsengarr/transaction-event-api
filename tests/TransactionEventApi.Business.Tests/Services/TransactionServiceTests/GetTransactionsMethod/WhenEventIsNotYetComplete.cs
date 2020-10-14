@@ -69,11 +69,6 @@ namespace TransactionEventApi.Business.Tests.Services.TransactionServiceTests.Ge
             {
                 Share1.Verify(s => s.DownloadAsync(It.Is<string>(x => x == $"{i}/metadata.json")), Times.Once);
             }
-
-            await foreach (var i in _paths2)
-            {
-                Share2.Verify(s => s.DownloadAsync(It.Is<string>(x => x == $"{i}/metadata.json")), Times.Once);
-            }
         }
 
         [Test]
@@ -82,11 +77,6 @@ namespace TransactionEventApi.Business.Tests.Services.TransactionServiceTests.Ge
             Assert.That(_output, Is.Not.Null);
 
             await foreach (var path in _paths1)
-            {
-                Assert.That(_output.Any(s => s.Directory == path));
-            }
-
-            await foreach (var path in _paths2)
             {
                 Assert.That(_output.Any(s => s.Directory == path));
             }

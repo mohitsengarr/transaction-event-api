@@ -52,7 +52,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi
             services.TryAddTransient<IDictionary<string, IConfigurationItemValidator>>(_ => new Dictionary<string, IConfigurationItemValidator>
             {
                 {nameof(ITransactionEventApiConfiguration.TransactionStoreConnectionStringCsv), new StringValidator(1)},
-                {nameof(ITransactionEventApiConfiguration.ShareName), new StringValidator(1)}
+                {nameof(ITransactionEventApiConfiguration.ShareName), new StringValidator(1, 100)}
             });
             services.TryAddSingleton<ITransactionEventApiConfiguration>(serviceProvider =>
             {

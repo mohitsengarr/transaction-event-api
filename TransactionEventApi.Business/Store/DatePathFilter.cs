@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Services;
 
@@ -26,13 +27,11 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
 
         public PathAction DecideAction(string path)
         {
-            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentNullException(nameof(path));
+            var parts = path?.Split('/') ?? Enumerable.Empty<string>().ToArray();
 
-            var parts = path.Split('/');
-
-            return parts.Length > NumberOfPartsBeforeFileDirectory ? PathAction.Collect
-                : ShouldRecurse(parts) ? PathAction.Recurse
-                : PathAction.Stop;
+            return ShouldRecurse(parts) ? PathAction.Recurse
+                     : parts.Length > NumberOfPartsBeforeFileDirectory ? PathAction.Collect
+                     : PathAction.Stop;
         }
 
         private bool ShouldRecurse(IReadOnlyList<string> parts)
@@ -58,7 +57,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             if (!int.TryParse(folderParts[0], out var parsedYear)) return false;
             if (!int.TryParse(folderParts[1], out var parsedMonth)) return false;
 
-            if (start.Year == end.Year) return parsedMonth >= start.Month && parsedMonth <= start.Month;
+            if (start.Year == end.Year) return parsedMonth >= start.Month && parsedMonth <= end.Month;
             if (parsedYear == start.Year) return parsedMonth >= start.Month;
             if (parsedYear == end.Year) return parsedMonth <= end.Month;
             return true;
