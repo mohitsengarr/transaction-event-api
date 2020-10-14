@@ -21,7 +21,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
         {
             var model = Create(EventId.NewDocument, fileId, timestamp);
             model.Properties.Add("PolicyId", policyId.GetValueOrDefault(Guid.NewGuid()).ToString());
-            model.Properties.Add("RequestMode", mode.GetValueOrDefault(RequestMode.Response).ToString());
+            model.Properties.Add("RequestMode", ((int)mode.GetValueOrDefault(RequestMode.Response)).ToString());
             return model;
         }
 
@@ -32,7 +32,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             DateTimeOffset? timestamp = null)
         {
             var model = Create(EventId.FileTypeDetected, fileId, timestamp);
-            model.Properties.Add("FileType", fileType.ToString());
+            model.Properties.Add("FileType", ((int)fileType).ToString());
             return model;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Enums;
 
 namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1

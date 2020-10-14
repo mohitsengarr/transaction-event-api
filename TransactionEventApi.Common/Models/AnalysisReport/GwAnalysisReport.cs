@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.AnalysisReport
 {
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
@@ -16,6 +18,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://glasswall.com/namespace", IsNullable = false)]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfo
     {
         private GWallInfoDocumentStatistics documentStatisticsField;
@@ -38,6 +41,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatistics
     {
 
@@ -107,6 +111,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsDocumentSummary
     {
 
@@ -160,6 +165,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsCamera
     {
 
@@ -200,6 +206,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsCameraContentSwitch
     {
 
@@ -238,6 +245,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroups
     {
 
@@ -278,6 +286,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroup
     {
 
@@ -361,6 +370,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupContentItems
     {
 
@@ -401,6 +411,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupContentItemsContentItem
     {
 
@@ -499,6 +510,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItems
     {
 
@@ -562,6 +574,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem
     {
 
@@ -600,6 +613,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItems
     {
 
@@ -639,6 +653,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem
     {
 
@@ -707,6 +722,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
     public partial class GWallInfoDocumentStatisticsExtractedItems
     {
 

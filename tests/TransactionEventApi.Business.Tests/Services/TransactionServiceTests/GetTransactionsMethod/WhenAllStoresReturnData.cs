@@ -90,7 +90,14 @@ namespace TransactionEventApi.Business.Tests.Services.TransactionServiceTests.Ge
 
             await foreach (var path in _paths1)
             {
-                Assert.That(_output.Any(s => s.Directory == path));
+                var obj = _output.Single(s => s.Directory == path);
+                
+                Assert.That(obj, Is.Not.Null);
+                Assert.That(obj.ActivePolicyId.ToString(), Is.EqualTo(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["PolicyId"]));
+                Assert.That(obj.FileId.ToString(), Is.EqualTo(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["FileId"]));
+                Assert.That((int)obj.DetectionFileType, Is.EqualTo(int.Parse(_expectedMetadata.Events.EventOrDefault(EventId.FileTypeDetected).Properties["FileType"])));
+                Assert.That(obj.Risk, Is.EqualTo(Risk.Safe));
+                Assert.That(obj.Timestamp, Is.EqualTo(DateTimeOffset.Parse(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["Timestamp"])));
             }
 
             await foreach (var path in _paths2)
