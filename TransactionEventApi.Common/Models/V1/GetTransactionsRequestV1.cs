@@ -11,10 +11,6 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1
     {
         [Required]
         public FileStoreFilterV1 Filter { get; set; }
-
-        public int PageSize { get; set; }
-        
-        public int PageNumber { get; set; }
     }
 
     public class FileStoreFilterV1

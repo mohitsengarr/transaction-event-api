@@ -97,7 +97,7 @@ namespace TransactionEventApi.Business.Tests.Services.TransactionServiceTests.Ge
                 Assert.That(obj.ActivePolicyId.ToString(), Is.EqualTo(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["PolicyId"]));
                 Assert.That(obj.FileId.ToString(), Is.EqualTo(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["FileId"]));
                 Assert.That((int)obj.DetectionFileType, Is.EqualTo(int.Parse(_expectedMetadata.Events.EventOrDefault(EventId.FileTypeDetected).Properties["FileType"])));
-                Assert.That(obj.Risk, Is.EqualTo(Risk.AllowedByNCFS));
+                Assert.That(obj.Risk, Is.EqualTo(Risk.BlockedByNCFS));
                 Assert.That(obj.Timestamp, Is.EqualTo(DateTimeOffset.Parse(_expectedMetadata.Events.EventOrDefault(EventId.NewDocument).Properties["Timestamp"])));
             }
 

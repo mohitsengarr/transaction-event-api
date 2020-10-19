@@ -6,23 +6,39 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Enums
     {
         public static Risk DetermineRisk(NCFSOutcome ncfsOutcome, GwOutcome gwOutcome)
         {
-            var risk = ncfsOutcome switch
+            Risk risk;
+            switch (ncfsOutcome)
             {
-                NCFSOutcome.Relayed => Risk.AllowedByNCFS,
-                NCFSOutcome.Replaced => Risk.Safe,
-                NCFSOutcome.Blocked => Risk.AllowedByNCFS,
-                _ => Risk.Unknown
-            };
+                case NCFSOutcome.Relayed:
+                    risk = Risk.AllowedByNCFS;
+                    break;
+                case NCFSOutcome.Replaced:
+                    risk = Risk.Safe;
+                    break;
+                case NCFSOutcome.Blocked:
+                    risk = Risk.BlockedByNCFS;
+                    break;
+                default:
+                    risk = Risk.Unknown;
+                    break;
+            }
 
-            if (risk == Risk.Unknown)
+            if (risk != Risk.Unknown) return risk;
+
+            switch (gwOutcome)
             {
-                risk = gwOutcome switch
-                {
-                    GwOutcome.Replace => Risk.Safe,
-                    GwOutcome.Unmodified => Risk.AllowedByPolicy,
-                    GwOutcome.Failed => Risk.BlockedByPolicy,
-                    _ => Risk.Unknown
-                };
+                case GwOutcome.Replace:
+                    risk = Risk.Safe;
+                    break;
+                case GwOutcome.Unmodified:
+                    risk = Risk.AllowedByPolicy;
+                    break;
+                case GwOutcome.Failed:
+                    risk = Risk.BlockedByPolicy;
+                    break;
+                default:
+                    risk = Risk.Unknown;
+                    break;
             }
 
             return risk;

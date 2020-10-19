@@ -94,6 +94,56 @@ namespace TransactionEventApi.Business.Tests.Services.TransactionServiceTests.Ge
         }
 
         [Test]
+        public async Task Bad_FileType_Is_FilteredOut_Filter()
+        {
+            var badEvent = TransactionAdaptionEventModel.FileTypeDetectedEvent(FileType.Coff);
+            badEvent.Properties["FileType"] = "Rgsjrjgkisjghr";
+            JsonSerialiser.Setup(s => s.Deserialize<TransactionAdapationEventMetadataFile>(It.IsAny<MemoryStream>(), It.IsAny<Encoding>()))
+                .ReturnsAsync(_expectedMetadata = new TransactionAdapationEventMetadataFile
+                {
+                    Events = new[]
+                    {
+                        TransactionAdaptionEventModel.AnalysisCompletedEvent(_fileId),
+                        badEvent,
+                        TransactionAdaptionEventModel.NcfsCompletedEvent(NCFSOutcome.Blocked, _fileId),
+                        TransactionAdaptionEventModel.NcfsStartedEvent(_fileId),
+                        TransactionAdaptionEventModel.NewDocumentEvent(),
+                        TransactionAdaptionEventModel.RebuildCompletedEvent(GwOutcome.Failed, _fileId),
+                        TransactionAdaptionEventModel.RebuildEventStarting(_fileId),
+                    }
+                });
+
+            _output = await ClassInTest.GetTransactionsAsync(_input, CancellationToken.None);
+
+            Assert.That(_output.Count, Is.EqualTo(10));
+        }
+
+        [Test]
+        public async Task NoneExistent_FileType_Is_FilteredOut_Filter()
+        {
+            var badEvent = TransactionAdaptionEventModel.FileTypeDetectedEvent(FileType.Coff);
+            badEvent.Properties.Remove("FileType");
+            JsonSerialiser.Setup(s => s.Deserialize<TransactionAdapationEventMetadataFile>(It.IsAny<MemoryStream>(), It.IsAny<Encoding>()))
+                .ReturnsAsync(_expectedMetadata = new TransactionAdapationEventMetadataFile
+                {
+                    Events = new[]
+                    {
+                        TransactionAdaptionEventModel.AnalysisCompletedEvent(_fileId),
+                        badEvent,
+                        TransactionAdaptionEventModel.NcfsCompletedEvent(NCFSOutcome.Blocked, _fileId),
+                        TransactionAdaptionEventModel.NcfsStartedEvent(_fileId),
+                        TransactionAdaptionEventModel.NewDocumentEvent(),
+                        TransactionAdaptionEventModel.RebuildCompletedEvent(GwOutcome.Failed, _fileId),
+                        TransactionAdaptionEventModel.RebuildEventStarting(_fileId),
+                    }
+                });
+
+            _output = await ClassInTest.GetTransactionsAsync(_input, CancellationToken.None);
+
+            Assert.That(_output.Count, Is.EqualTo(10));
+        }
+
+        [Test]
         public async Task No_Event_Selected_With_Wrong_FileId_Filter()
         {
             _input.Filter.FileIds = new List<Guid> {
