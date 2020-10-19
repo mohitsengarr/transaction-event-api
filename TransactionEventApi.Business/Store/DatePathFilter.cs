@@ -38,14 +38,19 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
 
         private bool ShouldRecurse(IReadOnlyList<string> parts)
         {
-            return parts.Count switch
+            switch (parts.Count)
             {
-                1 => YearInRange(_start, _end, parts),
-                2 => MonthFolderInRange(_start, _end, parts),
-                3 => DayOfMonthInRange(_start, _end, parts),
-                4 => HourOfDayInRange(_start, _end, parts),
-                _ => false
-            };
+                case 1:
+                    return YearInRange(_start, _end, parts);
+                case 2:
+                    return MonthFolderInRange(_start, _end, parts);
+                case 3:
+                    return DayOfMonthInRange(_start, _end, parts);
+                case 4:
+                    return HourOfDayInRange(_start, _end, parts);
+                default:
+                    return false;
+            }
         }
 
         private static bool YearInRange(DateTimeOffset start, DateTimeOffset end, IReadOnlyList<string> folderParts)
