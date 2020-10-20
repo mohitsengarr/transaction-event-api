@@ -38,7 +38,8 @@ namespace Glasswall.Administration.K8.TransactionEventApi
             services.AddLogging(logging =>
             {
                 logging.AddDebug();
-            });
+            })
+                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug);
 
             services.AddControllers();
             services.AddCors(options =>
