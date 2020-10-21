@@ -26,3 +26,5 @@ Deployment is handled using github actions, commits to master will trigger a dep
 ## FAQ
 
 https://github.com/filetrust/product-saas-rebuild/blob/master/faq.md
+
+test
