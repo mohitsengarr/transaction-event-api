@@ -1,0 +1,42 @@
+name: CI Build
+
+env:
+  REPOSITORY: glasswallsolutions
+  IMAGE: transaction-event-api
+  TAG: develop
+
+on:
+  push:
+    branches: [develop]
+ 
+jobs:
+  build-push-docker-image:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+    - name: Docker Login
+      uses: docker/login-action@v1.6.0
+      with:
+        username: icapserviceaccount
+        password: ${{ secrets.ICAPDOCKERSECRET }}
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ env.TAG }}-${GITHUB_SHA::7} -t ${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ env.TAG }}-latest .
+        docker push ${{ env.REPOSITORY }}/${{ env.IMAGE }}
+        
+  merge-to-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+      - name: Merge to master branch 🔃
+        uses: devmasx/merge-branch@v1.1.0
+        with:
+          type: now
+          target_branch: master
+        env:
+          GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}  
+          
+
