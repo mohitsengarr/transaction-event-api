@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Glasswall.Administration.K8.TransactionEventApi
 {
-    public class ValidateModel : ActionFilterAttribute
+    public class ValidateModelAttribute : ActionFilterAttribute
     {
         public override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            if (context == null) throw new ArgumentException(nameof(context));
+            if (context == null) throw new ArgumentNullException(nameof(context));
             if (context.ModelState.IsValid) return base.OnActionExecutionAsync(context, next);
             
             var errors = context.ModelState.Values.SelectMany(s => s.Errors).Select(e => e.ErrorMessage).ToList();

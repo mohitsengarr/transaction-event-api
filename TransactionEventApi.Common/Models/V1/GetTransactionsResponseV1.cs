@@ -1,15 +1,12 @@
-﻿using System;
-using Glasswall.Administration.K8.TransactionEventApi.Common.Enums;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1
 {
     public class GetTransactionsResponseV1
     {
-        public DateTimeOffset Timestamp { get; set; }
-        public Guid FileId { get; set; }
-        public FileType DetectionFileType { get; set; }
-        public Risk Risk { get; set; }
-        public Guid ActivePolicy { get; set; }
-        public string AnalysisReport { get; set; }
+        public int Count => Files.Count();
+
+        public IEnumerable<GetTransactionsResponseV1File> Files { get; set; }
     }
 }

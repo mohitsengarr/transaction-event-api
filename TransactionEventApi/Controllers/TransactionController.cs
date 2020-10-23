@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading;
 using System.Threading.Tasks;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Models.V1;
 using Glasswall.Administration.K8.TransactionEventApi.Common.Services;
@@ -24,17 +24,28 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public async Task<IEnumerable<GetTransactionsResponseV1>> Get([Required][FromBody]GetTransactionsRequestV1 requestV1)
+        public async Task<IActionResult> GetTransactions([Required][FromBody]GetTransactionsRequestV1 request, CancellationToken cancellationToken)
         {
-            if (requestV1 == null) throw new ArgumentNullException(nameof(requestV1));
+            _logger.LogInformation("Beginning get transactions request");
 
-            _logger.LogInformation("Beginning get transactions requestV1");
+            var transactions = await _transactionService.GetTransactionsAsync(request, cancellationToken);
 
-            var transactions = await _transactionService.GetTransactionsAsync(requestV1);
+            _logger.LogInformation("Finished get transactions request");
 
-            _logger.LogInformation("Finished get transactions requestV1");
+            return Ok(transactions);
+        }
 
-            return transactions;
+        [HttpGet]
+        [ValidateModel]
+        public async Task<IActionResult> GetDetail([Required] [FromQuery] string filePath, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Beginning get detail request");
+
+            var detail = await _transactionService.GetDetailAsync(filePath, cancellationToken);
+
+            _logger.LogInformation("Finished get detail request");
+
+            return Ok(detail);
         }
     }
 }
