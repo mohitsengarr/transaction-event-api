@@ -3,7 +3,7 @@ name: CI Build
 env:
   REPOSITORY: glasswallsolutions
   IMAGE: transactioneventapi
-  TAG: master
+  TAG: main
 
 on:
   push:
