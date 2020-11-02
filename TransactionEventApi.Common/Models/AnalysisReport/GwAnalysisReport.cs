@@ -12,6 +12,8 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.AnalysisReport
 {
+
+
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
     /// <remarks/>
     [System.SerializableAttribute()]
@@ -21,6 +23,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [ExcludeFromCodeCoverage]
     public partial class GWallInfo
     {
+
         private GWallInfoDocumentStatistics documentStatisticsField;
 
         /// <remarks/>
@@ -421,11 +424,11 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
 
         private uint totalSizeInBytesField;
 
-        private ushort averageSizeInBytesField;
+        private uint averageSizeInBytesField;
 
-        private ushort minSizeInBytesField;
+        private uint minSizeInBytesField;
 
-        private ushort maxSizeInBytesField;
+        private uint maxSizeInBytesField;
 
         /// <remarks/>
         public string TechnicalDescription
@@ -455,6 +458,161 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
 
         /// <remarks/>
         public uint TotalSizeInBytes
+        {
+            get
+            {
+                return this.totalSizeInBytesField;
+            }
+            set
+            {
+                this.totalSizeInBytesField = value;
+            }
+        }
+
+        /// <remarks/>
+        public uint AverageSizeInBytes
+        {
+            get
+            {
+                return this.averageSizeInBytesField;
+            }
+            set
+            {
+                this.averageSizeInBytesField = value;
+            }
+        }
+
+        /// <remarks/>
+        public uint MinSizeInBytes
+        {
+            get
+            {
+                return this.minSizeInBytesField;
+            }
+            set
+            {
+                this.minSizeInBytesField = value;
+            }
+        }
+
+        /// <remarks/>
+        public uint MaxSizeInBytes
+        {
+            get
+            {
+                return this.maxSizeInBytesField;
+            }
+            set
+            {
+                this.maxSizeInBytesField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
+    public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItems
+    {
+
+        private GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItemsSanitisationItem[] sanitisationItemField;
+
+        private byte itemCountField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("SanitisationItem")]
+        public GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItemsSanitisationItem[] SanitisationItem
+        {
+            get
+            {
+                return this.sanitisationItemField;
+            }
+            set
+            {
+                this.sanitisationItemField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public byte itemCount
+        {
+            get
+            {
+                return this.itemCountField;
+            }
+            set
+            {
+                this.itemCountField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
+    [ExcludeFromCodeCoverage]
+    public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItemsSanitisationItem
+    {
+
+        private string technicalDescriptionField;
+
+        private uint sanitisationIdField;
+
+        private byte instanceCountField;
+
+        private ushort totalSizeInBytesField;
+
+        private ushort averageSizeInBytesField;
+
+        private ushort minSizeInBytesField;
+
+        private ushort maxSizeInBytesField;
+
+        /// <remarks/>
+        public string TechnicalDescription
+        {
+            get
+            {
+                return this.technicalDescriptionField;
+            }
+            set
+            {
+                this.technicalDescriptionField = value;
+            }
+        }
+
+        /// <remarks/>
+        public uint SanitisationId
+        {
+            get
+            {
+                return this.sanitisationIdField;
+            }
+            set
+            {
+                this.sanitisationIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte InstanceCount
+        {
+            get
+            {
+                return this.instanceCountField;
+            }
+            set
+            {
+                this.instanceCountField = value;
+            }
+        }
+
+        /// <remarks/>
+        public ushort TotalSizeInBytes
         {
             get
             {
@@ -511,39 +669,15 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
     [ExcludeFromCodeCoverage]
-    public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupSanitisationItems
-    {
-
-        private byte itemCountField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte itemCount
-        {
-            get
-            {
-                return this.itemCountField;
-            }
-            set
-            {
-                this.itemCountField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://glasswall.com/namespace")]
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItems
     {
 
-        private GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem remedyItemField;
+        private GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem[] remedyItemField;
 
         private byte itemCountField;
 
         /// <remarks/>
-        public GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem RemedyItem
+        public GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem[] RemedyItem
         {
             get
             {
@@ -580,7 +714,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
 
         private string technicalDescriptionField;
 
-        private byte instanceCountField;
+        private ushort instanceCountField;
 
         /// <remarks/>
         public string TechnicalDescription
@@ -596,7 +730,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
         }
 
         /// <remarks/>
-        public byte InstanceCount
+        public ushort InstanceCount
         {
             get
             {
@@ -617,12 +751,12 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
     public partial class GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItems
     {
 
-        private GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem issueItemField;
+        private GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem[] issueItemField;
 
         private byte itemCountField;
 
         /// <remarks/>
-        public GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem IssueItem
+        public GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem[] IssueItem
         {
             get
             {
