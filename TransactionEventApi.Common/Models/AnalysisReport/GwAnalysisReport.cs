@@ -677,6 +677,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
         private byte itemCountField;
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("RemedyItem")]
         public GWallInfoDocumentStatisticsContentGroupsContentGroupRemedyItemsRemedyItem[] RemedyItem
         {
             get
@@ -756,6 +757,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Common.Models.Analysis
         private byte itemCountField;
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("IssueItem")]
         public GWallInfoDocumentStatisticsContentGroupsContentGroupIssueItemsIssueItem[] IssueItem
         {
             get
