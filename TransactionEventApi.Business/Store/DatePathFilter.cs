@@ -91,10 +91,10 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             if (!int.TryParse(folderParts[2], out var parsedDay)) return false;
             if (!int.TryParse(folderParts[3], out var parsedHour)) return false;
 
-            var parsedDateExcludingTime = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay, parsedHour, 0, 0));
-            var searchStartExcludingTime = new DateTimeOffset(new DateTime(start.Year, start.Month, start.Day, start.Hour, 0, 0));
-            var searchEndExcludingTime = new DateTimeOffset(new DateTime(end.Year, end.Month, end.Day, end.Hour, 0, 0));
-            return parsedDateExcludingTime >= searchStartExcludingTime && parsedDateExcludingTime <= searchEndExcludingTime;
+            var parsedDateIncludingTime = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay, parsedHour, 0, 0));
+            var searchStartIncludingTime = new DateTimeOffset(new DateTime(start.Year, start.Month, start.Day, start.Hour, 0, 0));
+            var searchEndIncludingTime = new DateTimeOffset(new DateTime(end.Year, end.Month, end.Day, end.Hour, 0, 0));
+            return parsedDateIncludingTime >= searchStartIncludingTime && parsedDateIncludingTime <= searchEndIncludingTime;
         }
     }
 }
