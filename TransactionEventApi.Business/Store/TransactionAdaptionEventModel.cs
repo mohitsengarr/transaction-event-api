@@ -70,7 +70,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             Guid? fileId = null,
             DateTimeOffset? timestamp = null)
         {
-            var model = Create(EventId.NCFSStartedEvent, fileId, timestamp);
+            var model = Create(EventId.NcfsStartedEvent, fileId, timestamp);
             return model;
         }
 
@@ -80,7 +80,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             Guid? fileId = null,
             DateTimeOffset? timestamp = null)
         {
-            var model = Create(EventId.NCFSCompletedEvent, fileId, timestamp);
+            var model = Create(EventId.NcfsCompletedEvent, fileId, timestamp);
             model.Properties.Add("NCFSOutcome", ncfsOutcome.ToString());
             return model;
         }

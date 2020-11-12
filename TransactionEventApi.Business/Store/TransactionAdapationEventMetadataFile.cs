@@ -78,7 +78,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
         public bool TryParseRiskWithFilter(FileStoreFilterV1 filter, out Risk risk)
         {
             TryGetEvent(EventId.RebuildCompleted, out var rebuildEvent);
-            TryGetEvent(EventId.NCFSCompletedEvent, out var ncfsEvent);
+            TryGetEvent(EventId.NcfsCompletedEvent, out var ncfsEvent);
 
             var gwOutcome = rebuildEvent.PropertyOrDefault<GwOutcome>("GwOutcome") ?? GwOutcome.Unknown;
             var ncfsOutcome = ncfsEvent.PropertyOrDefault<NcfsOutcome>("NCFSOutcome") ?? NcfsOutcome.Unknown;
