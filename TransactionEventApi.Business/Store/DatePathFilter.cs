@@ -78,8 +78,10 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             if (!int.TryParse(folderParts[1], out var parsedMonth)) return false;
             if (!int.TryParse(folderParts[2], out var parsedDay)) return false;
 
-            var date = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay));
-            return date >= start && date <= end;
+            var parsedDateExcludingTime = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay));
+            var searchStartExcludingTime = new DateTimeOffset(new DateTime(start.Year, start.Month, start.Day));
+            var searchEndExcludingTime = new DateTimeOffset(new DateTime(end.Year, end.Month, end.Day));
+            return parsedDateExcludingTime >= searchStartExcludingTime && parsedDateExcludingTime <= searchEndExcludingTime;
         }
 
         private static bool HourOfDayInRange(DateTimeOffset start, DateTimeOffset end, IReadOnlyList<string> folderParts)
@@ -89,8 +91,10 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             if (!int.TryParse(folderParts[2], out var parsedDay)) return false;
             if (!int.TryParse(folderParts[3], out var parsedHour)) return false;
 
-            var date = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay, parsedHour, 0, 0));
-            return date >= start && date <= end;
+            var parsedDateExcludingTime = new DateTimeOffset(new DateTime(parsedYear, parsedMonth, parsedDay, parsedHour, 0, 0));
+            var searchStartExcludingTime = new DateTimeOffset(new DateTime(start.Year, start.Month, start.Day, start.Hour, 0, 0));
+            var searchEndExcludingTime = new DateTimeOffset(new DateTime(end.Year, end.Month, end.Day, end.Hour, 0, 0));
+            return parsedDateExcludingTime >= searchStartExcludingTime && parsedDateExcludingTime <= searchEndExcludingTime;
         }
     }
 }
