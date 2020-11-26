@@ -45,8 +45,8 @@ jobs:
         git config user.name github-actions
         
         # update imagestore.transactioneventapi.tag value in the values.yaml file
-        yq write administration/transactioneventapi/values.yaml imagestore.transactioneventapi.tag $IMAGE_TAG -i
-        git add administration/transactioneventapi/values.yaml
+        yq write administration/values.yaml imagestore.transactioneventapi.tag $IMAGE_TAG -i
+        git add administration/values.yaml
         git commit -m 'update image tag'
         git push origin $IMAGE_TAG
         
