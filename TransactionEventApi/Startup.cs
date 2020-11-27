@@ -94,7 +94,7 @@ namespace Glasswall.Administration.K8.TransactionEventApi
 
             app.UseRouting();
             app.UseAuthorization();
-
+            
             app.Use((context, next) =>
             {
                 context.Response.Headers["Access-Control-Expose-Headers"] = "*";
