@@ -5,4 +5,4 @@ services:
     image: ${DOCKER_REGISTRY-}transactioneventapi
     build:
       context: .
-      dockerfile: TransactionEventApi/Dockerfile
+      dockerfile: Dockerfile
