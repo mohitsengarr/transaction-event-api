@@ -60,17 +60,18 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Services
 
                 var fullPath = $"{fileDirectory}/report.xml";
 
-                var analysisReportStream = await fileStore.DownloadAsync(fullPath, cancellationToken);
-
-                if (analysisReportStream == null)
+                using (var analysisReportStream = await fileStore.DownloadAsync(fullPath, cancellationToken))
                 {
-                    status = DetailStatus.AnalysisReportNotFound;
+                    if (analysisReportStream == null)
+                    {
+                        status = DetailStatus.AnalysisReportNotFound;
+                        break;
+                    }
+
+                    analysisReport = await _xmlSerialiser.Deserialize<GWallInfo>(analysisReportStream, Encoding.UTF8);
+                    status = DetailStatus.Success;
                     break;
                 }
-
-                analysisReport = await _xmlSerialiser.Deserialize<GWallInfo>(analysisReportStream, Encoding.UTF8);
-                status = DetailStatus.Success;
-                break;
             }
 
             return new GetDetailResponseV1

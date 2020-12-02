@@ -70,20 +70,32 @@ namespace Glasswall.Administration.K8.TransactionEventApi
             services.TryAddSingleton<ISerialiser, JsonSerialiser>();
             services.TryAddTransient<IXmlSerialiser, XmlSerialiser>();
             services.TryAddTransient<IJsonSerialiser, JsonSerialiser>();
-
-            services.TryAddTransient<IEnumerable<ShareClient>>(s =>
+            
+            if (Configuration["UseMountedShare"]?.ToLower() == "true")
             {
-                var configuration = s.GetRequiredService<ITransactionEventApiConfiguration>();
-                return configuration.TransactionStoreConnectionStringCsv.Split(',').Select(
-                    connectionString => new ShareServiceClient(connectionString).GetShareClient(configuration.ShareName)
-                ).ToArray();
-            });
-
-            services.TryAddTransient<IEnumerable<IFileShare>>(s =>
+                services.TryAddTransient<IEnumerable<IFileShare>>(s =>
+                {
+                    // Mounted directories in /app/transactions/[sharename]
+                    return System.IO.Directory.GetDirectories("transactions")
+                        .Select(share => new MountedFileShare(share)).ToArray();
+                });
+            }
+            else
             {
-                var clients = s.GetRequiredService<IEnumerable<ShareClient>>();
-                return clients.Select(client => new AzureFileShare(client)).ToArray();
-            });
+                services.TryAddTransient<IEnumerable<ShareClient>>(s =>
+                {
+                    var configuration = s.GetRequiredService<ITransactionEventApiConfiguration>();
+                    return configuration.TransactionStoreConnectionStringCsv.Split(',').Select(
+                        connectionString => new ShareServiceClient(connectionString).GetShareClient(configuration.ShareName)
+                    ).ToArray();
+                });
+
+                services.TryAddTransient<IEnumerable<IFileShare>>(s =>
+                {
+                    var clients = s.GetRequiredService<IEnumerable<ShareClient>>();
+                    return clients.Select(client => new AzureFileShare(client)).ToArray();
+                });
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
