@@ -28,7 +28,9 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
 
         public PathAction DecideAction(string path)
         {
-            var parts = path?.Split('/') ?? Enumerable.Empty<string>().ToArray();
+            path = EnsureValidPath(path);
+
+            var parts = path.Split('/');
 
             if (ShouldRecurse(parts))
                 return PathAction.Recurse;
@@ -36,6 +38,12 @@ namespace Glasswall.Administration.K8.TransactionEventApi.Business.Store
             return parts.Length > NumberOfPartsBeforeFileDirectory
                     ? PathAction.Collect
                     : PathAction.Stop;
+        }
+
+        private static string EnsureValidPath(string path)
+        {
+            path ??= string.Empty;
+            return path.TrimStart('/');
         }
 
         private bool ShouldRecurse(IReadOnlyList<string> parts)
